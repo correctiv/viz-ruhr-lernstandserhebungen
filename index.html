@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>simple-viz-startkit for correctiv.org</title>
+  <link rel="stylesheet" href="./lib/correctiv.css" type="text/css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="./style.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+
+  <main>
+    <article class="article">
+      <section class="article-body page__container">
+        <div class="article-body__main">
+          <h2>Lernstandserhebungen</h2>
+
+          <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+            vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+            no sea takimata sanctus est Lorem ipsum dolor sit amet.
+          </p>
+
+          <figure class="figure -full-width">
+            <div class="figure__container">
+              <section class="cor-viz-ls__section cor-viz-ls__multi-maps-container">
+                <div class="cor-viz-ls__multi-maps" id="multi-maps"></div>
+                <div class="cor-viz-ls__info-wrapper">
+                  <div class="multi-map__selector" id="multi-maps-selector"></div>
+                  <div class="multi-map__infobox" id="multi-maps-infobox"></div>
+                  <div class="multi-map__legend" id="multi-maps-legend"></div>
+                </div>
+                <div class="figure__credits">
+                  <p><strong>Daten:</strong> <a href="">Data Source</a></p>
+                </div>
+              </section>
+            </div>
+          </figure>
+
+          <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+            tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At
+            vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,
+            no sea takimata sanctus est Lorem ipsum dolor sit amet.
+          </p>
+
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <script src="./lib/d3.v4.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./lib/topojson.v2.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./lib/riot.min.js" type="text/javascript" charset="utf-8"></script>
+  <!-- <script src="./lib/d3-playbooks.base.min.js" type="text/javascript" charset="utf-8"></script> -->
+  <script src="./lib/d3-playbooks.maps.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./lib/d3-playbooks.riot-components.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./viz.min.js" type="text/javascript" charset="utf-8"></script>
+  <script type="text/javascript" charset="utf-8">
+    renderMultiMaps();
+  </script>
+
+</body>
+</html>

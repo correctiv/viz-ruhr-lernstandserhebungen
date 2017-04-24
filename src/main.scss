@@ -1,0 +1,242 @@
+$screen-sm: 768px;
+$screen-md: 992px;
+$screen-lg: 1200px;
+
+
+.cor-viz-ls {
+
+  &__multi-maps {
+    // border: 1px solid green;
+
+    @media (min-width: $screen-sm) {
+      width: 70%;
+      float: left;
+    }
+
+    @media (min-width: $screen-lg) {
+      width: 75%;
+    }
+  }
+
+  &__multi-maps-container {
+    position: relative;
+    // border: 1px solid yellow;
+  }
+
+  &__info-wrapper {
+    // border: 1px solid gray;
+    clear: both;
+
+    @media (min-width: $screen-sm) {
+      clear: none;
+      float: right;
+      width: 30%;
+      padding-left: 20px;
+    }
+
+    @media (min-width: $screen-lg) {
+      width: 25%;
+    }
+  }
+
+  &__section {
+    // wrapper for inside <figure> and <figcaption> to apply
+    // margin for viz container and infobox/legend
+    padding-top: 10px;
+
+    @media (min-width: $screen-sm) {
+      padding-top: 20px;
+    }
+  }
+
+}
+
+
+.multi-map {
+
+  &__container {
+    // border: 1px solid red;
+
+    @media (min-width: $screen-sm / 2) {
+      width: 50%;
+      float: left;
+    }
+  }
+
+  &__wrapper {
+    padding: 10px 20px 10px 0;
+  }
+
+  &__svg {
+    // the main chart/map styling happens here.
+
+    path.map__item {
+      stroke: #fff;
+      stroke-width: 6;
+
+      &.-hilight {
+        stroke: #c81455;
+      }
+    }
+  }
+
+  &__title {
+    margin-top: 0;
+    font-size: 16px;
+    font-family: 'Neuzeit','Helvetica','Arial',sans-serif;
+  }
+
+  &__infobox {
+
+    dl.fixme {
+      margin-bottom: 20px;
+    }
+
+    dt {
+      padding-top: .7em;
+      font-size: 20px;
+      line-height: 1em;
+      font-family: 'Neuzeit','Helvetica','Arial',sans-serif;
+      font-weight: bold;
+    }
+
+    dd {
+      font-size: 15px;
+      font-weight: normal;
+      line-height: 1em;
+    }
+
+    .data--small {
+      font-size: 15px;
+    }
+  }
+
+  &__selector {
+    position: relative;
+    display: block;
+
+    select {
+      background: white;
+      margin: 0;
+      padding: 5px;
+      border: 1px solid gray;
+      display: block;
+      width: 100%;
+
+      option {
+        font-size: 14px;
+        padding: 0px;
+
+      }
+
+    }
+  }
+
+  &__legend {
+    position: absolute;
+    bottom: 10px;
+    right: 0px;
+
+    &-title {
+      text-align: right;
+      font-size: 15px;
+      line-height: 1;
+      margin-bottom: 0;
+    }
+
+    &-item {
+      color: white;
+      font-family: 'Neuzeit','Helvetica','Arial',sans-serif;
+      font-size: 12px;
+      padding: 3px 6px 3px 6px;
+    }
+
+  }
+
+}
+
+.figure__credits {
+  clear: both;
+  margin-top: 14px;
+  color: #9c9c9c;
+  font-size: 14px;
+  line-height: 1.4;
+
+  a {
+    border: none;
+    text-decoration: underline;
+    color: inherit;
+  }
+
+  &>p:first-of-type:before {
+    // remove icon
+    content: '';
+    padding: 0;
+  }
+}
+
+
+.multi-map__selector {
+    /*
+     * Styling for `select` element, borrowed from:
+     * https://github.com/filamentgroup/select-css/blob/master/src/select-css.css
+     * ---
+     * This is the native select, we're making everything but the text invisible so
+     * we can see the button styles in the wrapper */
+  select {
+    width: 100%;
+    margin: 0;
+    outline: none;
+    padding: .2em .4em;
+    border-radius: 0;
+
+
+    /* Prefixed box-sizing rules necessary for older browsers */
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    /* Font size must be 16px to prevent iOS page zoom on focus */
+    font-size: 16px;
+  }
+
+  /* Custom arrow sits on top of the select - could be an image, SVG, icon font,
+   * etc. or the arrow could just baked into the bg image on the select. */
+  &::after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    right: 1em;
+    z-index: 2;
+    /* These hacks make the select behind the arrow clickable in some browsers */
+    pointer-events: none;
+    display: none;
+  }
+
+  @supports (-webkit-appearance: none) or (appearance: none) or ((-moz-appearance: none) and (mask-type: alpha)) {
+
+    &::after {
+      content: '▾'; // custom arrow
+      display: block;
+      position: absolute;
+      right: .6em;
+      top: .3em;
+    }
+
+    /* Remove select styling */
+    select {
+      padding-right: 1.2em;
+      background: none; // inside @supports so that iOS <= 8 display the native arrow
+      border: 1px solid #aaa; // inside @supports so that Android <= 4.3 display the native arrow
+
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+
+    select:focus {
+      border-color: #000;
+    }
+  }
+}
+
