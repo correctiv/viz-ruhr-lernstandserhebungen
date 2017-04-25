@@ -1,0 +1,32 @@
+.multi-bars {
+
+  &__row {
+    clear: both;
+    padding-top: 20px;
+    // border-top: 1px solid gray;
+  }
+
+  &__cell {
+    width: 50%;
+    float: left;
+    display: block;
+    // border: 1px solid green;
+
+    &--empty {
+      display: none;
+
+      @media (min-width: $screen-sm) {
+        display: block;
+        width: 20%;
+        border: 1px solid white;  // FIXME
+      }
+    }
+
+    @media (min-width: $screen-sm) {
+      width: 20%;
+    }
+
+  }
+
+}
+

@@ -1,4 +1,5 @@
 import {COLORS, SUBJECTS} from './config.js'
+import renderCharts from './multi_maps-render_bars.js'
 
 export default () => {
 
@@ -68,17 +69,20 @@ export default () => {
               element: '#multi-maps-infobox',
               template: `
               <h4 class="cor-viz-ls__infobox-title">Anteil der Risikoschüler</h4>
-              <p>in {GEN}</p>
-              <dl class="fixme">
-                <dt>{math__risiko_rel} %</dd>
-                <dd>Mathe</dt>
-                <dt>{german__risiko_rel} %</dd>
-                <dd>Deutsch</dt>
-                <dt>{english_listen__risiko_rel} %</dd>
-                <dd>Englisch (Hören)</dt>
-                <dt>{english_read__risiko_rel} %</dd>
-                <dd>Englisch (Lesen)</dt>
-              </dl>
+              <table class="multi-map__table">
+                <tr class="multi-map__table-row multi-map__table-row--header">
+                  <td>{math__risiko_rel}&nbsp;%</td>
+                  <td>{german__risiko_rel}&nbsp;%</td>
+                  <td>{english_listen__risiko_rel}&nbsp;%</td>
+                  <td>{english_read__risiko_rel}&nbsp;%</td>
+                </tr>
+                <tr class="multi-map__table-row">
+                  <td>Mathe</td>
+                  <td>Deutsch</td>
+                  <td>Englisch (Hören)</td>
+                  <td>Englisch (Lesen)</td>
+                </tr>
+              </table>
               <p class="data--small">Teilnehmer: {participating}</p>
             `
             })
@@ -98,7 +102,10 @@ export default () => {
 
           // broadcast hilighting
 
-          maps[s].control().on(riot.EVT.updateInfobox, d => hilight(true, s, d))
+          maps[s].control().on(riot.EVT.updateInfobox, d => {
+            renderCharts(d)
+            hilight(true, s, d)
+          })
         } else {
           maps[s].control().on(riot.EVT.mouseover, ({data}) => hilight(false, s, data))
         }
