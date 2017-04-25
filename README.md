@@ -1,72 +1,31 @@
-# simple-viz-startkit
+# Webpack Frontend Starterkit
 
-A wrapper around [this wrapper](https://github.com/simonwoerpel/d3-playbooks) to render simple `d3`-powered viz fitting into [correctiv.org](https://correctiv.org/)'s article layout.
+A lightweight foundation for your next webpack based frontend project.
 
-## new `cmsPlugin`-instance:
 
-**init js**
-
-```html
-<script>
-  renderViz(%id%);
-</script>
-```
-
-## base visualisation setup
-
-**javascript**
-
-(only include what you need)
+### Installation
 
 ```
-lib/d3.v4.min.js
-lib/topojson.v2.min.js
-lib/riot.min.js
-lib/d3-playbooks.base.min.js
-lib/d3-playbooks.maps.min.js
-lib/d3-playbooks.riot-components.min.js
-viz.min.js
+npm install
 ```
 
-**styles**
+### Start Dev Server 
 
 ```
-style.min.css
+npm run dev
 ```
 
-**html**
+### Build Prod Version
 
-(remove unused elements like `selector` or `infobox`)
-
-```html
-<figure class="cor-viz figure -paragraph-width">
-  <div class="cor-viz cor-viz__container figure__container">
-    <div class="cor-viz cor-viz__chart d3-playbooks" id="cor-viz__chart--%id%"></div>
-    <figcaption class="cor-viz cor-viz__figcaption-wrapper figure__caption">
-      <div class="figure__title"><p>Legend Title</p></div>
-      <div class="cor-viz cor-viz__legend" id="cor-viz__legend--%id%"></div>
-      <div class="cor-viz cor-viz__selector" id="cor-viz__selector--%id%"></div>
-      <div class="cor-viz cor-viz__infobox" id="cor-viz__infobox--%id%"></div>
-      <div class="figure__credits">
-        <p><strong>Daten:</strong> <a href="">Data Source</a></p>
-      </div>
-    </figcaption>
-  </div>
-</figure>
+```
+npm run build
 ```
 
-## development / build
+### Features:
 
-Start your preferred local web server and browse `./index.html` (and edit accordingly) to see preview of your viz.
+* ES6 Support via [babel-loader](https://github.com/babel/babel-loader)
+* SASS Support via [sass-loader](https://github.com/jtangelder/sass-loader)
+* Linting via [eslint-loader](https://github.com/MoOx/eslint-loader)
+* Hot Module Replacement
 
-### install build deps
-
-`npm install`
-
-### build js and css for deployment
-
-`npm run build`
-
-### watch and build js and css during development
-
-`npm run dev`
+When you run `npm run build` we use the [extract-text-webpack-plugin](https://github.com/webpack/extract-text-webpack-plugin) to move the css to a separate file and included in the head of your `index.html`, so that the styles are applied before any javascript gets loaded. We disabled this function for the dev version, because the loader doesn't support hot module replacement.

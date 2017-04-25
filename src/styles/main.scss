@@ -1,8 +1,3 @@
-$screen-sm: 768px;
-$screen-md: 992px;
-$screen-lg: 1200px;
-
-
 .cor-viz-ls {
 
   &__multi-maps {
@@ -130,6 +125,8 @@ $screen-lg: 1200px;
       }
 
     }
+
+    @include reset-select;
   }
 
   &__legend {
@@ -193,69 +190,3 @@ $screen-lg: 1200px;
     padding: 0;
   }
 }
-
-
-.multi-map__selector {
-    /*
-     * Styling for `select` element, borrowed from:
-     * https://github.com/filamentgroup/select-css/blob/master/src/select-css.css
-     * ---
-     * This is the native select, we're making everything but the text invisible so
-     * we can see the button styles in the wrapper */
-  select {
-    width: 100%;
-    margin: 0;
-    outline: none;
-    padding: .2em .4em;
-    border-radius: 0;
-
-
-    /* Prefixed box-sizing rules necessary for older browsers */
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-
-    /* Font size must be 16px to prevent iOS page zoom on focus */
-    font-size: 16px;
-  }
-
-  /* Custom arrow sits on top of the select - could be an image, SVG, icon font,
-   * etc. or the arrow could just baked into the bg image on the select. */
-  &::after {
-    content: " ";
-    position: absolute;
-    top: 50%;
-    right: 1em;
-    z-index: 2;
-    /* These hacks make the select behind the arrow clickable in some browsers */
-    pointer-events: none;
-    display: none;
-  }
-
-  @supports (-webkit-appearance: none) or (appearance: none) or ((-moz-appearance: none) and (mask-type: alpha)) {
-
-    &::after {
-      content: '▾'; // custom arrow
-      display: block;
-      position: absolute;
-      right: .6em;
-      top: .3em;
-    }
-
-    /* Remove select styling */
-    select {
-      padding-right: 1.2em;
-      background: none; // inside @supports so that iOS <= 8 display the native arrow
-      border: 1px solid #aaa; // inside @supports so that Android <= 4.3 display the native arrow
-
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-    }
-
-    select:focus {
-      border-color: #000;
-    }
-  }
-}
-
