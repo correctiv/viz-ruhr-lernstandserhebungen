@@ -1,7 +1,8 @@
 .cor-viz-ls {
 
   &__multi-maps {
-    // border: 1px solid green;
+    position: relative;
+    padding-bottom: 20px;
 
     @media (min-width: $screen-sm) {
       width: 70%;
@@ -13,13 +14,7 @@
     }
   }
 
-  &__multi-maps-container {
-    position: relative;
-    // border: 1px solid yellow;
-  }
-
   &__info-wrapper {
-    // border: 1px solid gray;
     clear: both;
 
     @media (min-width: $screen-sm) {
@@ -172,12 +167,15 @@
   }
 
   &__legend {
-    position: absolute;
-    bottom: 10px;
-    right: 0px;
+
+    @media (min-width: $screen-sm) {
+      position: absolute;
+      bottom: -30px;
+      right: 0px;
+      text-align: right;
+    }
 
     &-title {
-      text-align: right;
       font-size: 15px;
       line-height: 1;
       margin-bottom: 0;
