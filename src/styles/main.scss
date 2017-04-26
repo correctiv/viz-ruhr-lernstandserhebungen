@@ -68,9 +68,11 @@
     path.map__item {
       stroke: #fff;
       stroke-width: 6;
+      transition: stroke .1s;
 
       &.-hilight {
-        stroke: #c81455;
+        stroke: $hilight-color;
+        transition: stroke .1s;
       }
     }
   }
@@ -82,6 +84,8 @@
   }
 
   &__table {
+    margin-top: 20px;
+    margin-bottom: 20px;
     width: 100%;
     table-layout: fixed;
 
@@ -89,7 +93,8 @@
       font-size: 15px;
 
       &--header {
-        font-size: 17px;
+        color: $hilight-color;
+        font-size: 20px;
         line-height: 1em;
         font-family: 'Neuzeit','Helvetica','Arial',sans-serif;
         font-weight: bold;
@@ -108,6 +113,32 @@
   &__small-bars {
     .--hidden {
       display: none;
+    }
+
+    .annotation {
+      &--small {
+        font-size: 15px;
+      }
+    }
+
+    .d3-playbooks {
+      .y.axis {
+        .domain {
+          stroke: none;
+        }
+        .tick {
+          line {
+            stroke: none;
+          }
+          text {
+            font-size: 12px;
+          }
+        }
+      }
+      .bar-labels {
+        font-size: 12px;
+        font-family: sans-serif;
+      }
     }
   }
 

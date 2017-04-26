@@ -1,5 +1,5 @@
 import {COLORS, SUBJECTS} from './config.js'
-import renderCharts from './multi_maps-render_bars.js'
+import addEvents from './multi_maps-add_events.js'
 
 export default () => {
 
@@ -35,23 +35,15 @@ export default () => {
       })
 
       const maps = {}
-      // broadcast hilighting
-      const hilight = (master, slug, data) => {
-        // hilight all others:
-        Object.keys(maps).filter(s => s !== slug).map(k => {
-          maps[k].hilight(data)
-        })
-        if (!master) {
-          // trigger infobox update for master map
-          const control = maps[Object.keys(maps)[0]].control()
-          control.trigger(riot.EVT.updateInfobox, data)
-          control.trigger(riot.EVT.updateSelector, data)
-        }
+
+      // have some state data globally
+      riot.STORE = {
+        activeMap: 'math'
       }
 
       const wrapper = d3.select(`#${wrapperId}`)
-      let i = 0
-      Object.keys(SUBJECTS).map(s => {
+
+      Object.keys(SUBJECTS).map((s, i) => {
         const elementId = `${wrapperId}--${s}`
         const element = wrapper.append('div')
           .attr('id', elementId)
@@ -62,8 +54,9 @@ export default () => {
           yCol: `${s}__${valueColSuffix}`
         }).render()
 
-        // render master legends/infobox/selector for first iteration
+        // render legends/infobox/selector for first iteration
         if (!i) {
+          riot.STORE.master = s
           maps[s]
             .infobox({
               element: '#multi-maps-infobox',
@@ -83,7 +76,7 @@ export default () => {
                   <td>Englisch (Lesen)</td>
                 </tr>
               </table>
-              <p class="data--small">Teilnehmer: {participating}</p>
+              <p class="data--small">Schüler: {participating}</p>
             `
             })
             .legend({
@@ -99,19 +92,12 @@ export default () => {
               element: '#multi-maps-selector',
               getLabel: f => f.GEN
             })
-
-          // broadcast hilighting
-
-          maps[s].control().on(riot.EVT.updateInfobox, d => {
-            renderCharts(d)
-            hilight(true, s, d)
-          })
-        } else {
-          maps[s].control().on(riot.EVT.mouseover, ({data}) => hilight(false, s, data))
         }
 
-        i++
       })
+
+      riot.STORE.maps = maps
+      addEvents(maps)
 
     })
 
