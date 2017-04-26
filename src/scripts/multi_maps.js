@@ -5,19 +5,25 @@ export default () => {
 
   // options
   const dataUrl = './data/data.csv'
-  const geoDataUrl = './data/rvr_districts.topo.json'
+  // const geoDataUrl = './data/rvr_districts.topo.json'
+  // const geoDataUrl = './data/nrw_districts.topo.json'
+  const geoDataUrl = './data/nrw_districts_excerpt_fixed.topo.json'
   const wrapperId = 'multi-maps'
   const cssNamespace = 'multi-map'
   const legendId = '#multi-maps-legend'
   const infoboxId = '#multi-maps-infobox'
   const selectorId = '#multi-maps-selector'
-  const width = 846
-  const height = 480
+  const width = 800
+  const height = 600
+  // rvr shape:
+  // const width = 846
+  // const height = 480
   const yExtent = [0, 35]
   const valueColSuffix = 'risiko_rel'
 
   d3.json(geoDataUrl, d => {
-    const geoData = topojson.feature(d, d.objects.rvr_districts)
+    // const geoData = topojson.feature(d, d.objects.rvr_districts)
+    const geoData = topojson.feature(d, d.objects.nrw_districts_fixed)
 
     d3.csv(dataUrl, data => {
 
@@ -32,6 +38,7 @@ export default () => {
         yExtent,
         getId: f => f.properties.RS,
         responsiveSvg: true,
+        // projection: d3.geoEquirectangular()
       })
 
       const maps = {}
@@ -76,7 +83,7 @@ export default () => {
                   <td>Englisch (Lesen)</td>
                 </tr>
               </table>
-              <p class="data--small">Schüler: {participating}</p>
+              <p class="data--small">Achtklässler, die in <strong>{GEN}</strong> an der Lernstandserhebung teilgenommen haben: <strong>{participating}</strong></p>
             `
             })
             .legend({

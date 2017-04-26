@@ -54,7 +54,8 @@
   }
 
   &__wrapper {
-    padding: 10px 20px 10px 0;
+    padding: 0;
+    // padding: 10px 20px 10px 0;
   }
 
   &__svg {
@@ -74,7 +75,7 @@
 
   &__title {
     margin-top: 0;
-    font-size: 16px;
+    font-size: 20px;
     font-family: 'Neuzeit','Helvetica','Arial',sans-serif;
   }
 
@@ -156,7 +157,7 @@
       width: 100%;
 
       option {
-        font-size: 14px;
+        font-size: 16px;
         padding: 0px;
 
       }
