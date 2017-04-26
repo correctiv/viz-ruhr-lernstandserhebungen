@@ -1,4 +1,4 @@
-import {COLORS, SUBJECTS} from './config.js'
+import {SCHEMES, SUBJECTS} from './config.js'
 import addEvents from './multi_maps-add_events.js'
 
 export default () => {
@@ -28,14 +28,13 @@ export default () => {
     d3.csv(dataUrl, data => {
 
       d3.playbooks.choroplethMap.defaults({
-        color: COLORS,
         nullColor: '#ededed',
         cssNamespace,
         height,
         width,
         data,
         geoData,
-        yExtent,
+        // yExtent,
         getId: f => f.properties.RS,
         responsiveSvg: true,
         // projection: d3.geoEquirectangular()
@@ -55,13 +54,30 @@ export default () => {
         const element = wrapper.append('div')
           .attr('id', elementId)
           .attr('class', 'multi-map__container')
+
         element.append('h4').attr('class', 'multi-map__title').text(SUBJECTS[s])
+
+        // add legend element
+        element.append('div')
+          .attr('class', 'multi-map__legend')
+          .attr('id', `multi-map__legend--${s}`)
+
         maps[s] = d3.playbooks.choroplethMap({
+          color: SCHEMES[s],
           elementId,
           yCol: `${s}__${valueColSuffix}`
         }).render()
+          .legend({
+            wrapperTemplate: `
+              <h4 class="multi-map__legend-title">Anteil in %</h4>
+              <div class="multi-map__legend-items">
+                {body}
+              </div>`,
+            itemTemplate: '<span class="multi-map__legend-item" style="background-color:{color};">{label}</span>',
+            element: `#multi-map__legend--${s}`
+          })
 
-        // render legends/infobox/selector for first iteration
+        // render infobox/selector for first iteration
         if (!i) {
           riot.STORE.master = s
           maps[s]
@@ -85,15 +101,6 @@ export default () => {
               </table>
               <p class="data--small">Achtklässler, die in <strong>{GEN}</strong> an der Lernstandserhebung teilgenommen haben: <strong>{participating}</strong></p>
             `
-            })
-            .legend({
-              wrapperTemplate: `
-                <h4 class="multi-map__legend-title">Anteil in %</h4>
-                <div class="multi-map__legend-items">
-                  {body}
-                </div>`,
-              itemTemplate: '<span class="multi-map__legend-item" style="background-color:{color};">{label}</span>',
-              element: '#multi-maps-legend'
             })
             .selector({
               element: '#multi-maps-selector',

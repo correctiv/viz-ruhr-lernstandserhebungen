@@ -1,4 +1,4 @@
-import {SUBJECTS, COLORS} from './config.js'
+import {SUBJECTS, SCHEMES} from './config.js'
 
 // create small bar chart element once
 const element = d3.select('#multi-maps-small-bars').append('div')
@@ -30,14 +30,15 @@ const getChartData = data => {
 }
 
 export default data => {
+  const slug = riot.STORE.activeMap
   element.classed('--hidden', false)
   element.selectAll('div').remove()
-  element.select('h4').text(`Ergebnisse für ${SUBJECTS[riot.STORE.activeMap]}`)
+  element.select('h4').text(`Ergebnisse für ${SUBJECTS[slug]}`)
 
   d3.playbooks.horizontalBarChart({
     width: 300,
     height: 150,
-    color: d => d.y > 1 ? COLORS[0] : '#c81455',
+    color: d => d.y > 1 ? SCHEMES[slug][3] : SCHEMES[slug][8],
     elementId: 'multi-map__bar-chart',
     data: getChartData(data),
     barMargin: 5,

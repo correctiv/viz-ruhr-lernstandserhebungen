@@ -45,7 +45,6 @@
 .multi-map {
 
   &__container {
-    // border: 1px solid red;
 
     @media (min-width: $screen-sm / 2) {
       width: 50%;
@@ -62,12 +61,14 @@
     // the main chart/map styling happens here.
 
     path.map__item {
-      stroke: #fff;
-      stroke-width: 6;
+      stroke: gray;
+      stroke-width: 2;
       transition: stroke .1s;
 
       &.-hilight {
-        stroke: $hilight-color;
+        // stroke: $hilight-color;
+        stroke-width: 6;
+        stroke: black;
         transition: stroke .1s;
       }
     }
@@ -89,7 +90,7 @@
       font-size: 15px;
 
       &--header {
-        color: $hilight-color;
+        // color: $hilight-color;
         font-size: 20px;
         line-height: 1em;
         font-family: 'Neuzeit','Helvetica','Arial',sans-serif;
@@ -169,24 +170,26 @@
 
   &__legend {
 
-    @media (min-width: $screen-sm) {
-      position: absolute;
-      bottom: -30px;
-      right: 0px;
-      text-align: right;
-    }
+    margin-bottom: -50px;
+    // @media (min-width: $screen-sm) {
+    //   position: absolute;
+    //   bottom: 0px;
+    //   left: 0px;
+    //   text-align: right;
+    // }
 
     &-title {
-      font-size: 15px;
+      font-size: 13px;
       line-height: 1;
       margin-bottom: 0;
     }
 
     &-item {
       color: white;
-      font-family: 'Neuzeit','Helvetica','Arial',sans-serif;
+      font-family: sans-serif;
+      // font-family: 'Neuzeit','Helvetica','Arial',sans-serif;
       font-size: 12px;
-      padding: 3px 6px 3px 6px;
+      padding: 2px 4px 2px 4px;
     }
 
   }
