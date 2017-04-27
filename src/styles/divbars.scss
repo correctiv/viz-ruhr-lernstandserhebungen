@@ -9,6 +9,7 @@
   }
 
   &__bar {
+    transition: width .1s;
     display: block;
     height: 20px;
     background-color: $viz-color;

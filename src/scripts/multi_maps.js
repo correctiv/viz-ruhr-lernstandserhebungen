@@ -45,7 +45,8 @@ export default () => {
 
       // have some state data globally
       riot.STORE = {
-        activeMap: 'math'
+        activeMap: 'math',
+        smallBars: false
       }
 
       const wrapper = d3.select(`#${wrapperId}`)
