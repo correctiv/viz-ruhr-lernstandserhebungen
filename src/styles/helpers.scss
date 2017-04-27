@@ -1,0 +1,20 @@
+.--hidden {
+  display: none;
+}
+
+.--mobile-only {
+  display: block;
+
+  @media (min-width: $screen-sm) {
+    display: none;
+  }
+}
+
+.annotation {
+  &--small {
+    font-size: 15px;
+  }
+  &--smaller {
+    font-size: 13px;
+  }
+}

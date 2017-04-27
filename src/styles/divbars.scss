@@ -1,0 +1,29 @@
+.divbars {
+
+  &__bar-outer {
+    position: relative;
+    display: block;
+    height: 30px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  &__bar {
+    display: block;
+    height: 20px;
+    background-color: $viz-color;
+
+    &--hilight {
+      background-color: $hilight-color;
+    }
+
+    &-label {
+      position: absolute;
+      color: gray;
+      right: 10px;
+      font-size: 12px;
+      line-height: 20px;
+    }
+  }
+
+}

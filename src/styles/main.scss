@@ -107,15 +107,6 @@
   }
 
   &__small-bars {
-    .--hidden {
-      display: none;
-    }
-
-    .annotation {
-      &--small {
-        font-size: 15px;
-      }
-    }
 
     .d3-playbooks {
       .y.axis {

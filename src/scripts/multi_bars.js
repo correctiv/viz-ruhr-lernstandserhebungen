@@ -1,4 +1,5 @@
 import {COLORS, SUBJECTS} from './config.js'
+import renderDivBars from './render_div_bars.js'
 
 export default () => {
 
@@ -16,68 +17,77 @@ export default () => {
       'Schulen des längeren gemeinsamen Lernens'
     ]
 
+    const yLabels = [
+      'kein Niveau',
+      'Niveaustufe&nbsp;1',
+      'Niveaustuf&nbsp;2',
+      'Niveaustufe&nbsp;3',
+      'Niveaustufe&nbsp;4',
+      'Niveaustufe&nbsp;5',
+    ]
+
     const columns = Object.keys(SUBJECTS).map(s => SUBJECTS[s])
     columns.splice(0, 0, null)
 
     const getData = form => {
       const _data = data.filter(d => d.schulform == form)
-      return columns.map(c => c ? _data.find(d => d.fach == c) : c)
+      return columns.map(c => _data.find(d => d.fach == c))
     }
 
     const getChartData = data => {
-      const keys = Object.keys(data).filter(k => k.indexOf('niveau') > -1 && k.indexOf('6') < 0).sort().reverse()
-      return keys.map(k => {
+      return Object.keys(data).filter(k => k.indexOf('niveau') > -1 && k.indexOf('6') < 0)
+        .sort().map((k, i) => {
         return {
-          y: k,
-          x: data[k]
+          x: i || '-',
+          y: data[k]
         }
       })
     }
 
-    // header row
-    wrapperEl.append('div')
-        .attr('class', `${cssNamespace}__row ${cssNamespace}__row--header`)
-        .selectAll('div').data(columns).enter()
-      .append('div')
-        .attr('class', `${cssNamespace}__cell`)
-        .classed(`${cssNamespace}__cell--empty`, d => !d)
-        .text(d => d)
+    const sectionRows = wrapperEl.append('div').selectAll('div').data(forms).enter()
+        .append('div')
+          .attr('class', `${cssNamespace}__row ${cssNamespace}__row--section`)
+          .html(d => `<h3>${d}</h3>`)
 
-    // data rows
-    wrapperEl.append('div').selectAll('div').data(forms).enter()
-      .append('div')
-        .attr('class', `${cssNamespace}__row ${cssNamespace}__row--section`)
-        .html(d => `<h3>${d}</h3>`)
-      .append('div').selectAll('div').data(d => getData(d)).enter()
-      .append('div')
-        .attr('class', `${cssNamespace}__cell`)
-        .classed(`${cssNamespace}__cell--chart`, d => d)
-        .classed(`${cssNamespace}__cell--empty`, d => !d)
-      .append('div')
-        .attr('id', d => d && d.chart_id)
+    // annotation for mobile display
+    sectionRows.append('span')
+      .attr('class', 'annotation--smaller --mobile-only')
+      .text('Verteilung auf die Niveaustufen. "-" = keine Niveaustufe erreicht.')
 
-    // render charts into created divs
+    sectionRows.call(rows => {
+      columns.map(c => {
+        // first columns are labels
+        if (!c) {
+          rows.append('div').attr('class', `${cssNamespace}__cell ${cssNamespace}__cell--labels`)
+              .selectAll('span').data(yLabels).enter()
+            .append('span')
+              .attr('class', `${cssNamespace}__label`)
+              .html(l => l)
+        } else {
+          rows.selectAll('div').data(d => getData(d)).enter()
+            .append('div')
+              .attr('class', `${cssNamespace}__cell ${cssNamespace}__cell--chart`)
+            .append('div')
+              // create element in which the charts will be rendered into
+              .attr('id', d => d && d.chart_id)
+            .append('span')
+              .attr('class', 'chart-title')
+              .text(d => d.fach)
+        }
+      })
+
+    })
+
+    // render bars into created divs
     data.map(d => {
-
-      d3.playbooks.horizontalBarChart({
-        elementId: d.chart_id,
-        data: getChartData(d),
-        color: d => d.y.indexOf('0') < 0 && d.y.indexOf('1') < 0 ? COLORS[0] : COLORS[3],
-        barMargin: 10,
-        margin: {
-          top: 0,
-          right: 0,
-          bottom: 0,
-          left: 0
-        },
-        showXAxis: false,
-        // xScaleNice: false,
-        // xTicks: 2,
-        showYAxis: false,
-        getXDomain: () => [0, 75],
-        responsiveSvg: true,
-      }).render()
-
+      d3.select(`#${d.chart_id}`).call(element => {
+        renderDivBars(element, getChartData(d))
+      })
+      // add labes for mobile
+        .selectAll('div.divbars__bar')
+      .append('span')
+        .attr('class', 'multi-bars__mobile-labels --mobile-only')
+        .text(d => d.x)
     })
 
   })

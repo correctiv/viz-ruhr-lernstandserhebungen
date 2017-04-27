@@ -1,5 +1,11 @@
+// util
 @import './vars.scss';
 @import './selector_reset.scss';
+@import './helpers.scss';
 
-@import './main.scss';
+// components
+@import './divbars.scss';
 @import './multi_bars.scss';
+
+// legacy
+@import './main.scss';

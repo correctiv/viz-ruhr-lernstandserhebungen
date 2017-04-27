@@ -1,31 +1,71 @@
 .multi-bars {
 
+  &__viz-container {
+    padding-bottom: 40px;
+  }
+
   &__row {
+    display: block;
     clear: both;
-    padding-top: 20px;
-    // border-top: 1px solid gray;
+    padding-top: 50px;
+
+    &--section {
+      h3 {
+        margin: 0;
+      }
+    }
   }
 
   &__cell {
+    position: relative;
+    margin-top: 20px;
     width: 50%;
     float: left;
     display: block;
     // border: 1px solid green;
 
-    &--empty {
+    @media (min-width: $screen-sm) {
+      width: 22%;
+    }
+
+    &--labels {
       display: none;
+      padding-top: 30px;
+      padding-right: 20px;
 
       @media (min-width: $screen-sm) {
         display: block;
-        width: 20%;
-        border: 1px solid white;  // FIXME
+        width: 12%;
+      }
+
+      span {
+        // border: 1px solid blue;
+        line-height: 30px;
+        height: 30px;
+        padding: 0;
+        margin: 0;
+        display: block;
+        text-align: right;
+        font-size: 14px;
+        color: gray;
       }
     }
 
-    @media (min-width: $screen-sm) {
-      width: 20%;
+    span.chart-title {
+      display: block;
+      height: 30px;
+      font-size: 16px;
+      margin: 0;
+      // font-family: $font-neuzeit;
     }
 
+  }
+
+  &__mobile-labels {
+    position: absolute;
+    left: -10px;
+    font-size: 12px;
+    line-height: 20px;
   }
 
 }
