@@ -44,7 +44,7 @@ export default data => {
     element.call(el => renderDivBars(el, _data))
         .selectAll('div.divbars__bar')
       .append('span')
-        // .attr('class', 'multi-bars__mobile-labels --mobile-only')
+        .attr('class', 'multi-map__bar-label')
         .text(d => d.x)
   } else {
     // update bar widths

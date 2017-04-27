@@ -106,27 +106,17 @@
 
   }
 
-  &__small-bars {
-
-    .d3-playbooks {
-      .y.axis {
-        .domain {
-          stroke: none;
-        }
-        .tick {
-          line {
-            stroke: none;
-          }
-          text {
-            font-size: 12px;
-          }
-        }
-      }
-      .bar-labels {
-        font-size: 12px;
-        font-family: sans-serif;
-      }
+  &__bar-chart {
+    .divbars__bar-outer {
+      padding-left: 15px;
     }
+  }
+
+  &__bar-label {
+    position: absolute;
+    left: 0px;
+    font-size: 15px;
+    line-height: 20px;
   }
 
   &__infobox {
