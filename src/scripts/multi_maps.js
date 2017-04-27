@@ -38,6 +38,7 @@ export default () => {
         yExtent,
         getId: f => f.properties.RS,
         responsiveSvg: true,
+        mouseout: false
         // projection: d3.geoEquirectangular()
       })
 
