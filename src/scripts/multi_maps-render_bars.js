@@ -10,10 +10,10 @@ const element = d3.select('#multi-maps-small-bars').append('div')
     .attr('id', 'multi-map__bar-chart')
 
 element.append('h4')
-  .attr('class', 'multi-map__bar-chart-title')
-element.append('p')
-  .attr('class', 'annotation--small')
-  .html('Verteilung auf die Niveaustufen.<br>"-" = keine Niveaustufe erreicht.')
+    .attr('class', 'multi-map__bar-chart-title')
+    .text('Ergebnisse')
+element.append('span')
+    .attr('class', 'multi-map__bar-chart-subtitle')
 
 const filterKey = (k, s) => {
   return k.indexOf('_rel') > -1 && k.indexOf(s) > -1 && k.indexOf('risiko') < 0
@@ -34,7 +34,7 @@ export default data => {
   const _data = getChartData(data)
 
   // update headline
-  element.select('h4').text(`Ergebnisse für ${SUBJECTS[riot.STORE.activeMap]}`)
+  element.select('span').text(SUBJECTS[riot.STORE.activeMap])
 
   if (!riot.STORE.smallBars) {
     riot.STORE.smallBars = true
@@ -46,6 +46,11 @@ export default data => {
       .append('span')
         .attr('class', 'multi-map__bar-label')
         .text(d => d.x)
+
+    // add annotation once
+    element.append('p')
+      .attr('class', 'annotation--small')
+      .html('Verteilung auf die Niveaustufen.<br>"-" = keine Niveaustufe erreicht.')
   } else {
     // update bar widths
     element.selectAll('div.divbars__bar').data(_data)

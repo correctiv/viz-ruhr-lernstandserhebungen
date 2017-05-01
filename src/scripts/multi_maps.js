@@ -68,7 +68,7 @@ export default () => {
             .infobox({
               element: '#multi-maps-infobox',
               template: `
-              <h4 class="cor-viz-ls__infobox-title">Anteil der Schüler, die höchstens die 1.&nbsp;Niveaustufe erreichen</h4>
+              <h4 class="cor-viz-ls__infobox-title">Anteil der Schüler, die höchstens die 1.&nbsp;Niveaustufe erreichten</h4>
               <table class="multi-map__table">
                 <tr class="multi-map__table-row multi-map__table-row--header">
                   <td>{math__risiko_rel}&nbsp;%</td>
@@ -88,7 +88,7 @@ export default () => {
             })
             .legend({
               wrapperTemplate: `
-                <h4 class="multi-map__legend-title">Anteil in %</h4>
+                <h4 class="multi-map__legend-title">Anteil in&nbsp;%</h4>
                 <div class="multi-map__legend-items">
                   {body}
                 </div>`,

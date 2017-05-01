@@ -39,6 +39,16 @@
     }
   }
 
+  &__infobox {
+
+    &-title {
+      font-size: 18px;
+      line-height: 1.4em;
+      font-weight: bold;
+    }
+
+  }
+
 }
 
 
@@ -63,11 +73,12 @@
 
     path.map__item {
       stroke: #fff;
-      stroke-width: 6;
+      stroke-width: 2;
       transition: stroke .1s;
 
       &.-hilight {
         stroke: $hilight-color;
+        stroke-width: 5;
         transition: stroke .1s;
       }
     }
@@ -76,7 +87,8 @@
   &__title {
     margin-top: 0;
     font-size: 20px;
-    font-family: 'Neuzeit','Helvetica','Arial',sans-serif;
+    font-weight: bold;
+    font-family: $font-neuzeit;
   }
 
   &__table {
@@ -92,7 +104,7 @@
         color: $hilight-color;
         font-size: 20px;
         line-height: 1em;
-        font-family: 'Neuzeit','Helvetica','Arial',sans-serif;
+        font-family: $font-neuzeit;
         font-weight: bold;
       }
 
@@ -107,6 +119,13 @@
   }
 
   &__bar-chart {
+    &-title {
+      margin-top: 20px;
+      font-size: 18px;
+      line-height: 1.4em;
+      font-weight: bold;
+    }
+
     .divbars__bar-outer {
       padding-left: 15px;
     }
@@ -117,12 +136,6 @@
     left: 0px;
     font-size: 15px;
     line-height: 20px;
-  }
-
-  &__infobox {
-    .data--small {
-      font-size: 15px;
-    }
   }
 
   &__selector {
@@ -165,7 +178,7 @@
 
     &-item {
       color: white;
-      font-family: 'Neuzeit','Helvetica','Arial',sans-serif;
+      font-family: $font-neuzeit;
       font-size: 12px;
       padding: 3px 6px 3px 6px;
     }
