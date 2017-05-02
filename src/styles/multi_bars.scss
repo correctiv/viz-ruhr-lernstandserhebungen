@@ -22,10 +22,9 @@
     width: 50%;
     float: left;
     display: block;
-    // border: 1px solid green;
 
     @media (min-width: $screen-sm) {
-      width: 22%;
+      width: 21%;
     }
 
     &--labels {
@@ -35,7 +34,7 @@
 
       @media (min-width: $screen-sm) {
         display: block;
-        width: 12%;
+        width: 16%;
       }
 
       span {
