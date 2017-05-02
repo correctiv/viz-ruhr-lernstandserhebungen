@@ -26,7 +26,7 @@ const getChartData = data => {
       x: i || '-',
       y: data[k]
     }
-  })
+  }).reverse()
 }
 
 export default data => {

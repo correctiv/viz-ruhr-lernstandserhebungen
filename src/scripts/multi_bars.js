@@ -24,7 +24,7 @@ export default () => {
       'Niveaustufe&nbsp;3',
       'Niveaustufe&nbsp;4',
       'Niveaustufe&nbsp;5',
-    ]
+    ].reverse()
 
     const columns = Object.keys(SUBJECTS).map(s => SUBJECTS[s])
     columns.splice(0, 0, null)
@@ -41,7 +41,7 @@ export default () => {
           x: i || '-',
           y: data[k]
         }
-      })
+      }).reverse()
     }
 
     const sectionRows = wrapperEl.append('div').selectAll('div').data(forms).enter()
