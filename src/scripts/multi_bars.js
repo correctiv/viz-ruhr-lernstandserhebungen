@@ -18,7 +18,7 @@ export default () => {
     ]
 
     const yLabels = [
-      'kein Niveau',
+      'kein&nbsp;Niveau',
       'Niveaustufe&nbsp;1',
       'Niveaustuf&nbsp;2',
       'Niveaustufe&nbsp;3',

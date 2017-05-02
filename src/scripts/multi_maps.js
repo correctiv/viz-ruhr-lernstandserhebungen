@@ -14,7 +14,7 @@ export default () => {
   const infoboxId = '#multi-maps-infobox'
   const selectorId = '#multi-maps-selector'
   const width = 800
-  const height = 600
+  const height = 700
   const yExtent = [0, 35]
   const valueColSuffix = 'risiko_rel'
 
