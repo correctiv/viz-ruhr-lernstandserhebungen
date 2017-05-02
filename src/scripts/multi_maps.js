@@ -83,7 +83,7 @@ export default () => {
                   <td>Englisch (Lesen)</td>
                 </tr>
               </table>
-              <p class="annotation--small">Schüler insgesamt: <strong>{participating}</strong></p>
+              <p class="annotation--small">Teilnehmende Schüler: <strong>{participating}</strong></p>
             `
             })
             .legend({
