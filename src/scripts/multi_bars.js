@@ -7,17 +7,18 @@ export default () => {
   const cssNamespace = 'multi-bars'
   const wrapperEl = d3.select(`#${cssNamespace}`)
 
-  const forms = [
-    'Gymnasium',
-    'Hauptschule',
-    'Realschule',
-    'Schulen des längeren gemeinsamen Lernens'
-  ]
+  const forms = {
+    // overall participating data for rvr area (without wesel & duisburg)
+    'Gymnasium': 12419,
+    'Hauptschule': 3067,
+    'Realschule': 8684,
+    'Schulen des längeren gemeinsamen Lernens': 9385
+  }
 
   const yLabels = [
     'kein&nbsp;Niveau',
     'Niveaustufe&nbsp;1',
-    'Niveaustuf&nbsp;2',
+    'Niveaustufe&nbsp;2',
     'Niveaustufe&nbsp;3',
     'Niveaustufe&nbsp;4',
     'Niveaustufe&nbsp;5',
@@ -41,10 +42,10 @@ export default () => {
     }).reverse()
   }
 
-  const sectionRows = wrapperEl.append('div').selectAll('div').data(forms).enter()
+  const sectionRows = wrapperEl.append('div').selectAll('div').data(Object.keys(forms)).enter()
       .append('div')
         .attr('class', `${cssNamespace}__row ${cssNamespace}__row--section`)
-        .html(d => `<h3>${d}</h3>`)
+        .html(d => `<h4>${d} <span>Schüler insgesamt: ${forms[d]}</span></h4>`)
 
   // annotation for mobile display
   sectionRows.append('span')

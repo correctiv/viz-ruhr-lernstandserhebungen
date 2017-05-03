@@ -7,11 +7,21 @@
   &__row {
     display: block;
     clear: both;
-    padding-top: 50px;
+    padding-top: 40px;
 
     &--section {
-      h3 {
+      h4 {
         margin: 0;
+
+        span {
+          font-weight: normal;
+          display: block;
+
+          @media (min-width: $screen-sm) {
+            display: inline;
+            float: right;
+          }
+        }
       }
     }
   }
