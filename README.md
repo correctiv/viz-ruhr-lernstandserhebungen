@@ -19,17 +19,17 @@ Two viz available:
 ### javascript
 
 ```
-lib/d3.v4.min.js
-lib/riot.min.js
-lib/d3-playbooks.maps.min.js
-lib/d3-playbooks.riot-components.min.js
-bundle.js
+dist/lib/d3.v4.min.js
+dist/lib/riot.min.js
+dist/lib/d3-playbooks.maps.min.js
+dist/lib/d3-playbooks.riot-components.min.js
+dist/bundle.js
 ```
 
 ### styles
 
 ```
-styles/bundle.css
+dist/styles/bundle.css
 ```
 
 ## for use in correctiv cms plugins:
