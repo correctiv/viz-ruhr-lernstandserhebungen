@@ -38,7 +38,7 @@ export default () => {
       return Object.keys(data).filter(k => k.indexOf('niveau') > -1 && k.indexOf('6') < 0)
         .sort().map((k, i) => {
         return {
-          x: i || '-',
+          x: i,
           y: data[k]
         }
       }).reverse()
@@ -52,7 +52,7 @@ export default () => {
     // annotation for mobile display
     sectionRows.append('span')
       .attr('class', 'annotation--smaller --mobile-only')
-      .text('Verteilung auf die Niveaustufen. "-" = keine Niveaustufe erreicht.')
+      .text('Verteilung der Schüler auf die Niveaustufen. 0 = keine Niveaustufe erreicht.')
 
     sectionRows.call(rows => {
       columns.map(c => {

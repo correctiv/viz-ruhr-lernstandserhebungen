@@ -23,7 +23,7 @@ const getChartData = data => {
   return Object.keys(data).filter(k => filterKey(k, riot.STORE.activeMap))
     .sort().map((k, i) => {
     return {
-      x: i || '-',
+      x: i,
       y: data[k]
     }
   }).reverse()
@@ -50,7 +50,7 @@ export default data => {
     // add annotation once
     element.append('p')
       .attr('class', 'annotation--small')
-      .html('Verteilung auf die Niveaustufen.<br>"-" = keine Niveaustufe erreicht.')
+      .html('Verteilung der Schüler auf die Niveaustufen.<br>0 = keine Niveaustufe erreicht.')
   } else {
     // update bar widths
     element.selectAll('div.divbars__bar').data(_data)
