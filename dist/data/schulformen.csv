@@ -1,17 +1,17 @@
 schulform,fach,participating,niveau0_rel,niveau1_rel,niveau2_rel,niveau3_rel,niveau4_rel,niveau5_rel,niveau6_rel,chart_id
-Gymnasium,Deutsch,19286.0,0.0,0.3,6.7,30.9,43.0,19.2,,gymnasium-deutsch
-Gymnasium,Englisch (Hören),19286.0,0.0,0.0,2.7,47.9,38.9,10.4,,gymnasium-englisch-hoeren
-Gymnasium,Englisch (Lesen),19286.0,0.0,0.0,2.2,43.6,39.1,15.0,,gymnasium-englisch-lesen
-Gymnasium,Mathe,19286.0,0.0,1.1,12.6,36.3,31.8,17.5,0.5,gymnasium-mathe
-Hauptschule,Deutsch,5816.0,6.7,26.6,37.9,21.7,6.3,0.9,,hauptschule-deutsch
-Hauptschule,Englisch (Hören),5816.0,2.3,17.7,56.3,21.4,2.2,0.3,,hauptschule-englisch-hoeren
-Hauptschule,Englisch (Lesen),5816.0,7.0,34.1,37.0,20.2,1.4,0.2,,hauptschule-englisch-lesen
-Hauptschule,Mathe,5816.0,6.2,59.1,26.6,6.7,1.4,0.1,0.0,hauptschule-mathe
-Realschule,Deutsch,14945.0,0.3,7.7,24.2,40.5,22.8,4.5,,realschule-deutsch
-Realschule,Englisch (Hören),14945.0,0.2,1.4,28.3,54.9,13.4,1.8,,realschule-englisch-hoeren
-Realschule,Englisch (Lesen),14945.0,0.0,2.8,25.7,59.1,10.9,1.4,,realschule-englisch-lesen
-Realschule,Mathe,14945.0,0.1,22.7,42.6,26.3,6.3,2.0,0.0,realschule-mathe
-Schulen des längeren gemeinsamen Lernens,Deutsch,24534.0,2.5,18.3,27.9,31.5,16.3,3.7,,schulen-des-laengeren-gemeinsamen-lernens-deutsch
-Schulen des längeren gemeinsamen Lernens,Englisch (Hören),14835.0,0.7,7.9,42.1,38.6,9.0,1.8,,schulen-des-laengeren-gemeinsamen-lernens-englisch-hoeren
-Schulen des längeren gemeinsamen Lernens,Englisch (Lesen),14835.0,1.8,16.3,31.5,41.8,7.4,1.2,,schulen-des-laengeren-gemeinsamen-lernens-englisch-lesen
-Schulen des längeren gemeinsamen Lernens,Mathe,14399.0,2.2,38.5,33.8,19.3,4.5,2.0,0.0,schulen-des-laengeren-gemeinsamen-lernens-mathe
+Gymnasium,Deutsch,12419.0,0.0,0.5,8.2,32.4,41.5,17.4,,gymnasium-deutsch
+Gymnasium,Englisch (Hören),12419.0,0.0,0.0,3.0,51.0,35.1,11.0,,gymnasium-englisch-hoeren
+Gymnasium,Englisch (Lesen),12419.0,0.0,0.0,2.8,40.5,40.7,15.9,,gymnasium-englisch-lesen
+Gymnasium,Mathe,12419.0,0.0,1.3,13.7,38.1,29.9,16.2,0.7,gymnasium-mathe
+Hauptschule,Deutsch,3067.0,9.5,33.1,34.4,18.1,4.6,0.6,,hauptschule-deutsch
+Hauptschule,Englisch (Hören),3067.0,3.3,24.6,54.8,15.6,1.5,0.4,,hauptschule-englisch-hoeren
+Hauptschule,Englisch (Lesen),3067.0,9.0,38.1,34.6,17.0,1.1,0.3,,hauptschule-englisch-lesen
+Hauptschule,Mathe,3067.0,8.5,61.8,23.5,5.4,0.8,0.1,0.0,hauptschule-mathe
+Realschule,Deutsch,8684.0,0.5,10.1,26.5,39.6,19.9,3.4,,realschule-deutsch
+Realschule,Englisch (Hören),8684.0,0.3,1.8,31.3,52.7,11.5,2.3,,realschule-englisch-hoeren
+Realschule,Englisch (Lesen),8684.0,0.0,3.7,29.1,55.5,10.1,1.3,,realschule-englisch-lesen
+Realschule,Mathe,8684.0,0.2,26.8,42.4,24.1,4.8,1.5,0.1,realschule-mathe
+Schulen des längeren gemeinsamen Lernens,Deutsch,17644.0,3.1,20.6,27.6,30.2,15.3,3.3,,schulen-des-laengeren-gemeinsamen-lernens-deutsch
+Schulen des längeren gemeinsamen Lernens,Englisch (Hören),10511.0,0.7,8.6,43.1,37.0,8.5,2.1,,schulen-des-laengeren-gemeinsamen-lernens-englisch-hoeren
+Schulen des längeren gemeinsamen Lernens,Englisch (Lesen),10511.0,2.2,17.3,32.6,39.5,7.4,1.1,,schulen-des-laengeren-gemeinsamen-lernens-englisch-lesen
+Schulen des längeren gemeinsamen Lernens,Mathe,10511.0,2.6,40.4,32.9,18.5,3.9,1.7,0.0,schulen-des-laengeren-gemeinsamen-lernens-mathe
