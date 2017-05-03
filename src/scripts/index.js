@@ -9,5 +9,10 @@ import renderMultiMaps from '../scripts/multi_maps.js'
 import renderMultiBars from '../scripts/multi_bars.js'
 import '../styles/index.scss'
 
-renderMultiMaps()
-renderMultiBars()
+if (d3.select('[data-viz="multi-maps"]')) {
+  renderMultiMaps()
+}
+
+if (d3.select('[data-viz="multi-bars"]')) {
+  renderMultiBars()
+}
