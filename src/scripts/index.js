@@ -5,6 +5,10 @@ if (module.hot) {
 }
 
 // import 'babel-polyfill'
+// classList polyfill:
+// https://github.com/eligrey/classList.js
+import './classList.js'
+
 import renderMultiMaps from '../scripts/multi_maps.js'
 import renderMultiBars from '../scripts/multi_bars.js'
 import '../styles/index.scss'
